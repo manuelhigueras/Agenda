@@ -14,13 +14,13 @@ import java.util.Date;
 public class Tarea {
     private Date fechaCreacion; 
     private String descripcion;
-    private Enum prioridad;
-    private String fechaRealizacion;
+    private Prioridad niveles;
+    private Date fechaRealizacion;
 
-    public Tarea(Date fechaCreacion, String descripcion, String prioridad, String fechaRealizacion) {
+    public Tarea(Date fechaCreacion, String descripcion, Prioridad niveles, Date fechaRealizacion) {
         this.fechaCreacion = fechaCreacion;
         this.descripcion = descripcion;
-        this.prioridad = prioridad;
+        this.niveles = niveles;
         this.fechaRealizacion = fechaRealizacion;
     }
 
@@ -40,19 +40,19 @@ public class Tarea {
         this.descripcion = descripcion;
     }
 
-    public String getPrioridad() {
-        return prioridad;
+    public Prioridad getPrioridad() {
+        return niveles;
     }
 
-    public void setPrioridad(String prioridad) {
-        this.prioridad = prioridad;
+    public void setPrioridad(Prioridad prioridad) {
+        this.niveles = prioridad;
     }
 
-    public String getFechaRealizacion() {
+    public Date getFechaRealizacion() {
         return fechaRealizacion;
     }
 
-    public void setFechaRealizacion(String fechaRealizacion) {
+    public void setFechaRealizacion(Date fechaRealizacion) {
         this.fechaRealizacion = fechaRealizacion;
     }
           

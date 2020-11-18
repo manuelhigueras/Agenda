@@ -6,6 +6,7 @@
 package com.coleccionPersonalDif.domain;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -15,7 +16,12 @@ import java.util.Set;
 public class Agenda {
    private Set<Tarea> toDoList;
    private Set<Tarea> doneList;
-    
+
+    public Agenda() {
+        this.toDoList = new HashSet<Tarea>();
+        this.doneList = new HashSet<Tarea>();
+    }
+   
    public void addTareaToDo(Tarea objetivo){
        this.toDoList.add(objetivo);
    }
@@ -31,6 +37,7 @@ public class Agenda {
           System.out.println("Prioridad:"+objetivo.getPrioridad());
           System.out.println("Descripcion:"+objetivo.getDescripcion());
           System.out.println("Fecha de Realizacion:"+objetivo.getFechaRealizacion());
+          System.out.println("-----------------------FINAL-----------------------------");
       }
       System.out.println("----------------------------------------------------");
     }
@@ -42,8 +49,8 @@ public class Agenda {
             System.out.println("Prioridad:"+listo.getPrioridad());
             System.out.println("Descripcion:"+listo.getDescripcion());
             System.out.println("Fecha de Realizacion:"+listo.getFechaRealizacion());
+            System.out.println("-----------------------FINAL-----------------------------");
         }
-        System.out.println("----------------------------------------------------");
    }
    
 }
