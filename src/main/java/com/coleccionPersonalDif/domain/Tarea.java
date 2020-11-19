@@ -6,6 +6,7 @@
 package com.coleccionPersonalDif.domain;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  *
@@ -24,6 +25,13 @@ public class Tarea {
         this.fechaRealizacion = fechaRealizacion;
     }
 
+    public Tarea(String descripcion) {
+        this.descripcion = descripcion;
+        this.niveles = Prioridad.BAJA;
+        this.fechaCreacion = new Date(); //fecha sistema
+        this.fechaRealizacion = null;
+    }
+    
     public Date getFechaCreacion() {
         return fechaCreacion;
     }
@@ -55,5 +63,44 @@ public class Tarea {
     public void setFechaRealizacion(Date fechaRealizacion) {
         this.fechaRealizacion = fechaRealizacion;
     }
-          
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 67 * hash + Objects.hashCode(this.fechaCreacion);
+        hash = 67 * hash + Objects.hashCode(this.descripcion);
+        hash = 67 * hash + Objects.hashCode(this.niveles);
+        hash = 67 * hash + Objects.hashCode(this.fechaRealizacion);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Tarea other = (Tarea) obj;
+        if (!Objects.equals(this.descripcion, other.descripcion)) {
+            return false;
+        }
+        if (!Objects.equals(this.fechaCreacion, other.fechaCreacion)) {
+            return false;
+        }
+        if (this.niveles != other.niveles) {
+            return false;
+        }
+        if (!Objects.equals(this.fechaRealizacion, other.fechaRealizacion)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+       
 }
